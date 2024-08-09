@@ -1,6 +1,6 @@
 
 
-var traduccion = {"a": "ai", "e": "enter", "i": "imes", "o": "ober", "u": "ufat"};
+var words = {"a": "ai", "e": "enter", "i": "imes", "o": "ober", "u": "ufat"};
 
 function encriptar(){
     document.querySelector("#msjAlert").removeAttribute("style");
@@ -23,15 +23,15 @@ function encriptar(){
                 return;
             }
             if(text[i] == 'a')
-                out += traduccion["a"];
+                out += words["a"];
             else if(text[i] == 'e')
-                out += traduccion["e"];
+                out += words["e"];
             else if(text[i] == 'i')
-                out += traduccion["i"];
+                out += words["i"];
             else if(text[i] == 'o')
-                out += traduccion["o"];
+                out += words["o"];
             else if(text[i] == 'u')
-                out += traduccion["u"];
+                out += words["u"];
             else
                 out += text[i];
         }
@@ -44,7 +44,7 @@ function encriptar(){
 
 function desencriptar(){
     document.querySelector("#msjAlert").removeAttribute("style");
-    var textarea = document.querySelector("#texto");
+    var textarea = document.querySelector("#txtOut");
     var text = textarea.value;
     var area_default = document.querySelector("#default");
     var area_result = document.querySelector("#result");
@@ -64,11 +64,11 @@ function desencriptar(){
         }
         area_default.classList.add("hideOut");
         area_result.classList.remove("hideOut");
-        text = text.replace(new RegExp(traduccion["a"], "g"), "a");
-        text = text.replace(new RegExp(traduccion["e"], "g"), "e");
-        text = text.replace(new RegExp(traduccion["i"], "g"), "i");
-        text = text.replace(new RegExp(traduccion["o"], "g"), "o");
-        text = text.replace(new RegExp(traduccion["u"], "g"), "u");
+        text = text.replace(new RegExp(words["a"], "g"), "a");
+        text = text.replace(new RegExp(words["e"], "g"), "e");
+        text = text.replace(new RegExp(words["i"], "g"), "i");
+        text = text.replace(new RegExp(words["o"], "g"), "o");
+        text = text.replace(new RegExp(words["u"], "g"), "u");
         textOut.innerHTML = text;
     }
     return;
