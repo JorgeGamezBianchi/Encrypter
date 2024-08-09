@@ -362,6 +362,7 @@ main {
 }
 
 
+/* PANTALLAS CON ALTURA MAXIMO DE 600 PX */
 @media screen and (max-height: 600px) {
     .imgOut>img {
         height: 200px;
@@ -369,6 +370,7 @@ main {
     }
 }
 
+/* PANTALLAS CON ALTURA MAXIMO DE 500 PX */
 @media screen and (max-height: 500px) {
     .imgOut>img {
         height: 150px;
@@ -376,6 +378,7 @@ main {
     }
 }
 
+/* PANTALLAS CON ANCHO MAXIMO DE 900 PX */
 @media screen and (max-width: 900px) {
     .title {
         font-size: 50px;
@@ -436,6 +439,7 @@ main {
 
 }
 
+/* PANTALLAS CON ANCHO MAXIMO DE 400 PX */
 @media screen and (max-width: 400px) {
     .title {
         font-size: 30px;
