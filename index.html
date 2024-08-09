@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>CHALLENGE ALURA</title>
+
+    <link rel="shortcut icon" href="./img/logo.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Honk&display=swap" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" />
+
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="containers">
+            <div class="header_title">
+                <h1 class="title">Encriptador de texto</h1>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="containers">
+            <div class="divEncryptor">
+                <form class="formEncryptor">
+                    <div class="divText">
+                        <textarea name="textArea" id="txtArea" placeholder="Ingrese un texto" required></textarea>
+                        <div class="txtInfo">
+                            <div class="alert">
+                                <ion-icon name="alert-circle"></ion-icon>
+                                <label id="msjAlert">Solo letras minúsculas y sin acentos</label>
+                            </div>
+
+                            <div class="buttons">
+                                <button type="button" id="btnEnc" value="Encriptar" onclick="encriptar()">
+                                    <ion-icon name="lock-closed-outline"></ion-icon> Encriptar
+                                </button>
+                                <button type="button" id="btnDes" value="Desencriptar" onclick="desencriptar()">
+                                    <ion-icon name="lock-open-outline"></ion-icon> Desencriptar
+                                </button>
+                                <!-- <button type="button" id="btnClean" value="Limpiar" onclick="CleanForm()">
+                                    <ion-icon name="backspace-outline"></ion-icon> Limpiar
+                                </button> -->
+
+                                <!-- <input type="button" id="btnDes" value="Desencriptar" /> -->
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="divText2">
+                    <div class="divContentOut">
+                        <div class="contentOut" id="default">
+                            <div class="imgOut">
+                                <img
+                                    src="https://media.giphy.com/media/VEatajZv6EiYEi4Cxd/giphy.gif?cid=ecf05e47ezcesrc4qpkd6t1zirlkb2icsnvfqv1j2ao19ycs&ep=v1_gifs_related&rid=giphy.gif&ct=s" />
+                            </div>
+                            <p>Sin mensajes</p>
+                        </div>
+                        <div class="contentOut hideOut" id="result">
+                            <textarea name="textAreaOut" id="txtOut" disabled></textarea>
+                            <button id="copy"><ion-icon name="copy-outline"></ion-icon>Copiar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+<script src="./js/script.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</html>
