@@ -52,7 +52,7 @@ header {
     font-weight: 600;
     color: #000000;
     text-decoration: none;
-    margin-left: 50px;
+    margin-left: auto;
     cursor: default;
     opacity: 0;
     font-family: Honk, system-ui;
@@ -377,6 +377,13 @@ main {
 }
 
 @media screen and (max-width: 900px) {
+    .title {
+        font-size: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .divEncryptor {
         height: 300vh;
         flex-direction: column;
@@ -391,12 +398,21 @@ main {
         flex-basis: 50%;
     }
 
-    .divText>textarea {
-        width: 100%;
+    .divText {
+        margin: auto;
+        width: calc(100% - 80px);
         flex-basis: 50%;
     }
 
+    .divText>textarea {
+        width: 100%;
+        flex-basis: 50%;
+        display: flex;
+        margin: 10px, 20px, 10px, 20px;
+    }
+
     .txtInfo {
+        margin-top: 0;
         margin-bottom: 0;
     }
 
@@ -423,7 +439,9 @@ main {
 @media screen and (max-width: 400px) {
     .title {
         font-size: 30px;
+        display: flex;
         justify-content: center;
+        align-items: center;
     }
 
     .divEncryptor {

@@ -1,77 +1,62 @@
 
-const enc = document.querySelector('#enc');
-const des = document.querySelector('#des');
-const clean = document.querySelector("#btnClean");
-const copy = document.querySelector('#copy');
 
 var traduccion = {"a": "ai", "e": "enter", "i": "imes", "o": "ober", "u": "ufat"};
 
-enc.addEventListener( 'click', function() {encriptar(traduccion);} );
-des.addEventListener( 'click', function() {desencriptar(traduccion);} );
-copy.addEventListener( 'click', function() {clipboard();} );
-// clean.addEventListener("click", function() { location.reload();  });
-
-function encriptar(traduccion){
+function encriptar(){
     document.querySelector("#msjAlert").removeAttribute("style");
     var textarea = document.querySelector("#txtArea");
-    const texto = textarea.value;
+    const text = textarea.value;
     var area_default = document.querySelector("#default");
     var area_result = document.querySelector("#result");
-    var texto_out = document.querySelector("#txtOut");
-    if (texto != ""){
+    var textOut = document.querySelector("#txtOut");
+    if (text != ""){
         var out = ""
-        for(var i=0; i < texto.length; i++){
-            if(((texto[i] < 'a') || (texto[i] > 'z')) && (texto[i] != ' ')){
+        for(var i=0; i < text.length; i++){
+            if(((text[i] < 'a') || (text[i] > 'z')) && (text[i] != ' ')){
                 document.querySelector("#msjAlert").style.color = "red";
                 document.querySelector("#msjAlert").style.fontSize = "20px";
                 return;
             }
-            else if((texto.length == 1 && texto == " ") || texto.replace(/ /g, "") == ""){
+            else if((text.length == 1 && text == " ") || text.replace(/ /g, "") == ""){
                 area_default.classList.remove("hideOut");
                 area_result.classList.add("hideOut");
                 return;
             }
-            if(texto[i] == 'a'){
+            if(text[i] == 'a')
                 out += traduccion["a"];
-            }
-            else if(texto[i] == 'e'){
+            else if(text[i] == 'e')
                 out += traduccion["e"];
-            }
-            else if(texto[i] == 'i'){
+            else if(text[i] == 'i')
                 out += traduccion["i"];
-            }
-            else if(texto[i] == 'o'){
+            else if(text[i] == 'o')
                 out += traduccion["o"];
-            }
-            else if(texto[i] == 'u'){
+            else if(text[i] == 'u')
                 out += traduccion["u"];
-            }
-            else{
-                out += texto[i];
-            }
+            else
+                out += text[i];
         }
         area_default.classList.add("hideOut");
         area_result.classList.remove("hideOut");
-        texto_out.innerHTML = out;
+        textOut.innerHTML = out;
     }
     return;
 }
 
-function desencriptar(traduccion){
+function desencriptar(){
     document.querySelector("#msjAlert").removeAttribute("style");
     var textarea = document.querySelector("#texto");
-    var texto = textarea.value;
+    var text = textarea.value;
     var area_default = document.querySelector("#default");
     var area_result = document.querySelector("#result");
-    var texto_out = document.querySelector("#txtOut");
-    if (texto != ""){
-        for(var i=0; i < texto.length; i++){
-            if(((texto[i] < 'a') || (texto[i] > 'z')) && (texto[i] != ' ')){
+    var textOut = document.querySelector("#txtOut");
+    if (text != ""){
+        for(var i=0; i < text.length; i++){
+            if(((text[i] < 'a') || (text[i] > 'z')) && (text[i] != ' ')){
                 document.querySelector("#msjAlert").style.color = "red";
                 document.querySelector("#msjAlert").style.fontSize = "16px";
                 return;
             }
-            else if((texto.length == 1 && texto == " ") || texto.replace(/ /g, "") == ""){
+            else if((text.length == 1 && text == " ") || text.replace(/ /g, "") == ""){
                 area_default.classList.remove("hideOut");
                 area_result.classList.add("hideOut");
                 return;
@@ -79,19 +64,19 @@ function desencriptar(traduccion){
         }
         area_default.classList.add("hideOut");
         area_result.classList.remove("hideOut");
-        texto = texto.replace(new RegExp(traduccion["a"], "g"), "a");
-        texto = texto.replace(new RegExp(traduccion["e"], "g"), "e");
-        texto = texto.replace(new RegExp(traduccion["i"], "g"), "i");
-        texto = texto.replace(new RegExp(traduccion["o"], "g"), "o");
-        texto = texto.replace(new RegExp(traduccion["u"], "g"), "u");
-        texto_out.innerHTML = texto;
+        text = text.replace(new RegExp(traduccion["a"], "g"), "a");
+        text = text.replace(new RegExp(traduccion["e"], "g"), "e");
+        text = text.replace(new RegExp(traduccion["i"], "g"), "i");
+        text = text.replace(new RegExp(traduccion["o"], "g"), "o");
+        text = text.replace(new RegExp(traduccion["u"], "g"), "u");
+        textOut.innerHTML = text;
     }
     return;
 }
 
-function clipboard(){
-    const texto_out = document.querySelector("#txtOut");
-    navigator.clipboard.writeText(texto_out.value);
+function copyText(){
+    const text_out = document.querySelector("#txtOut");
+    navigator.clipboard.writeText(text_out.value);
 }
 
 function CleanForm() {
