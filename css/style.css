@@ -2,12 +2,14 @@
     --tempo: 2s cubic-bezier(.88, .89, .49, 1.14);
 }
 
-html {
+html,
+body {
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    height: 100%;
     background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5));
     font-family: Inter, sans-serif;
     font-weight: 400;
@@ -27,24 +29,23 @@ header {
 }
 
 @keyframes floatTitle {
-    0% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
 
     50% {
         transform: translateY(-25px);
     }
-
-    100% {
-        transform: translateY(0);
-    }
 }
 
 .containers {
     width: 100%;
-    height: 100%;
     max-width: 1440px;
     margin: auto;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .title {
@@ -73,8 +74,6 @@ header {
 
 /* FIN BLOQUE HEADER */
 
-
-
 /* BLOQUE MAIN */
 main {
     height: auto;
@@ -83,7 +82,7 @@ main {
 
 .divEncryptor {
     margin: 0 40px;
-    width: 100%;
+    width: calc(100% - 80px);
     height: 100%;
     display: flex;
     justify-content: center;
@@ -112,6 +111,9 @@ main {
     border-radius: 20px;
     border-color: #000000;
     animation: slide_in var(--tempo);
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 @keyframes slide_in {
@@ -125,7 +127,7 @@ main {
 }
 
 .divText>textarea:focus {
-    outline: none
+    outline: none;
 }
 
 .txtInfo {
@@ -191,47 +193,17 @@ main {
     animation: heartBeat 0.8s;
 }
 
-@-webkit-keyframes heartBeat {
-    0% {
-        transform: scale(1);
-    }
-
-    14% {
-        transform: scale(1.3);
-    }
-
-    28% {
-        transform: scale(1);
-    }
-
-    42% {
-        transform: scale(1.3);
-    }
-
-    70% {
-        transform: scale(1);
-    }
-}
-
 @keyframes heartBeat {
-    0% {
-        transform: scale(1);
-    }
 
-    14% {
-        transform: scale(1.3);
-    }
-
-    28% {
-        transform: scale(1);
-    }
-
-    42% {
-        transform: scale(1.3);
-    }
-
+    0%,
+    28%,
     70% {
         transform: scale(1);
+    }
+
+    14%,
+    42% {
+        transform: scale(1.3);
     }
 }
 
@@ -255,8 +227,6 @@ main {
     color: #FFF;
     background-color: #000;
 }
-
-
 
 .divText2 {
     margin: 40px 40px;
@@ -352,7 +322,7 @@ main {
     transform: scale(1.05);
 }
 
-#copy:last-child:active {
+#copy:active {
     color: #FFF;
     background-color: #000;
 }
@@ -361,91 +331,56 @@ main {
     display: none;
 }
 
-
-/* PANTALLAS CON ALTURA MAXIMO DE 600 PX */
-@media screen and (max-height: 600px) {
-    .imgOut>img {
-        height: 200px;
-        width: 200px;
-    }
-}
-
-/* PANTALLAS CON ALTURA MAXIMO DE 500 PX */
-@media screen and (max-height: 500px) {
-    .imgOut>img {
-        height: 150px;
-        width: 150px;
-    }
-}
-
-/* PANTALLAS CON ANCHO MAXIMO DE 900 PX */
+/* Responsive styles */
 @media screen and (max-width: 900px) {
     .title {
-        font-size: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        font-size: 40px;
+        margin-left: 0;
+        text-align: center;
     }
 
     .divEncryptor {
-        height: 300vh;
         flex-direction: column;
-        width: calc(100% - 80px);
         align-items: center;
-        justify-content: flex-start;
     }
 
-    .divEncryptor {
-        margin: 0;
-        width: calc(100% - 80px);
-        flex-basis: 50%;
-    }
-
-    .divText {
-        margin: auto;
-        width: calc(100% - 80px);
-        flex-basis: 50%;
+    .formEncryptor,
+    .divText2 {
+        flex-basis: 100%;
+        width: 100%;
+        margin: 20px 0;
     }
 
     .divText>textarea {
+        margin-top: 20px;
+        font-size: 24px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .buttons>button {
         width: 100%;
-        flex-basis: 50%;
-        display: flex;
-        margin: 10px, 20px, 10px, 20px;
+        margin: 10px 0;
     }
 
-    .txtInfo {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-
-    .divText2 {
-        margin: 40px 40px;
-        width: calc(100% - 80px);
-        flex-basis: 50%;
+    .buttons>button:first-child,
+    .buttons>button:last-child {
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .imgOut>img {
-        display: none;
+        width: 100%;
+        max-width: 300px;
+        height: auto;
     }
-
-    .contentOut>p:nth-child(2) {
-        margin-top: 0;
-    }
-
-    .contentOut>p:nth-child(3) {
-        margin-top: 16px;
-    }
-
 }
 
-/* PANTALLAS CON ANCHO MAXIMO DE 400 PX */
 @media screen and (max-width: 400px) {
     .title {
         font-size: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
     .divEncryptor {
@@ -454,34 +389,28 @@ main {
     }
 
     .divText>textarea {
-        height: 50px;
-        flex-basis: 25%;
+        font-size: 20px;
+        line-height: 30px;
     }
 
-    .txtInfo {
-        margin-top: 0%;
+    .contentOut>p:nth-child(2) {
+        font-size: 20px;
     }
 
-    .divText2 {
-        width: calc(100% - 32px);
+    .contentOut>p:nth-child(3) {
+        font-size: 14px;
     }
 
-    .buttons {
-        flex-direction: column;
+    #txtOut {
+        font-size: 20px;
+        line-height: 30px;
     }
+}
 
-    .buttons>.button {
-        flex-basis: 50%;
-        padding: 23px 0
-    }
-
-    .buttons>.button:first-child {
-        margin-right: 0;
-        margin-bottom: 12px;
-    }
-
-    .buttons>.button:last-child {
-        margin-top: 12px;
-        margin-left: 0;
+/* Adjustments for very tall screens */
+@media screen and (min-height: 1000px) {
+    .divEncryptor {
+        height: auto;
+        min-height: 80vh;
     }
 }
